@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+
+		.red : { color : red; }
+
+	</style>
+
+	<title>My awesome angular tutorial</title>
+</head>
+
+<body ng-app="MyAwesomeApp">
+
+	<div ng-controller="ItemCtrl">
+		<div>
+			<input ng-model="selectedItem" id="main-input" 	type="text" />
+			<button ng-click="addItem(selectedItem)">Add Item</button>
+		</div>
+		<div>
+			<input ng-model="searchFilter" placeholder="insert some text filter.."></input>
+		</div>
+		<div>
+			<ul>
+				<li ng-style="{ 'color' : item.length > 10 ? 'red' : 'blue'}" ng-repeat="item in items | filter:  searchFilter track by $index">
+					<span>{{ item }}</span>
+					<button ng-click="removeItem(item)">Remove Item</button>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+
+<script type="text/javascript" src="scripts/jquery.js"></script>
+<script type="text/javascript" src="scripts/angular.js"></script>
+<script type="text/javascript" src="scripts/main.js"></script>
+</body>
+</html>
